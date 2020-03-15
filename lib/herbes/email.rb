@@ -5,7 +5,6 @@ require 'ostruct'
 require 'premailer'
 
 module Herbes
-  # renders them emails
   class Email < OpenStruct
     def render_style(path = Herbes::Constants::DEFAULT_EMAIL_STYLE_PATH)
       File.read(path)
