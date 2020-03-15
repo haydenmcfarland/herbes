@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title> <%= title %> </title>
+  </head>
+  <body>
+    <span class="preheader"> <%= preheader %> </span>
+    <table role="presentation"
+           border="0"
+           cellpadding="0"
+           cellspacing="0"
+           class="body"
+           >
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+          <div class="content">
+            <table role="presentation" class="main">
+              <tr>
+                <td class="wrapper">
+                  <table role="presentation"
+                         border="0"
+                         cellpadding="0"
+                         cellspacing="0"
+                         >
+                    <th>
+                      <img src="<%= img_absolute_path %>">
+                    </th>
+                    <tr>
+                      <td>
+                        <p><%= p_greetings %></p>
+                        <p><%= p_body %></p>
+                        <table role="presentation"
+                               border="0"
+                               cellpadding="0"
+                               cellspacing="0"
+                               class="btn btn-primary"
+                               >
+                          <tbody>
+                            <tr>
+                              <td align="left">
+                                <table role="presentation"
+                                       border="0"
+                                       cellpadding="0"
+                                       cellspacing="0"
+                                       >
+                                  <tbody>
+                                    <tr>
+                                      <td> <%= call_to_action %> </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p> <%= p_end %></p>
+                        <p><%= p_regards %></p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <div class="footer">
+              <table role="presentation"
+                     border="0"
+                     cellpadding="0"
+                     cellspacing="0"
+                     >
+                <tr>
+                  <td class="content-block">
+                    <span class="apple-link"> <%= footer_address %></span>
+                    <br>
+                    <%= footer_extra %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="content-block powered-by">
+                    <%= powered_by %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>
