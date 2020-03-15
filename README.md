@@ -5,7 +5,7 @@
 
 # What?
 
-A gem for rendering emails with inline css to create simple emails that will render correctly in email clients.
+A gem for rendering emails with inline css that will render correctly in email clients.
 
 # How to use
 Add `herbes` to your gem file:
