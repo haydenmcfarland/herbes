@@ -48,8 +48,14 @@ Herbes::Email.render(params)
 
 ```ruby
 # parameters are tied to what is expected in template
-params = { new_param1: 'test', new_param2: 'cool' }
-Herbes::Email.render(params.merge(template_path: 'template.html.erb', style_path: 'style.css')
+params = { 
+  new_param1: 'test', 
+  new_param2: 'cool',
+  template_path: 'template.html.erb', 
+  style_path: 'style.css',
+}
+
+Herbes::Email.render(params)
 
 ```
 
