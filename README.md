@@ -11,7 +11,7 @@ A gem for rendering emails with inline css that will render correctly in email c
 Add `herbes` to your gem file:
 
 ```ruby
-gem 'herbes', github: 'https://github.com/haydenmcfarland/herbes'
+gem 'herbes', github: 'haydenmcfarland/herbes'
 ```
 
 Run `bundle install`
