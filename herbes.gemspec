@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
   end
 
   s.require_paths = ['lib']
+  s.add_dependency('nokogiri')
+  s.add_dependency('premailer')
 end
