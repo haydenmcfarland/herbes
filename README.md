@@ -1,6 +1,7 @@
 # Herbes (ERB Email Generator for Ruby Lambda)
 
 ![herbes](https://github.com/haydenmcfarland/assets/blob/master/images/herbes.png?raw=true)
+![herbes_template](https://github.com/haydenmcfarland/assets/blob/master/images/herbes_template.png?raw=true)
 
 # What?
 
@@ -42,7 +43,6 @@ Herbes::Email.render(params)
 
 "<!DOCTYPE html>\n<html>\n  <head>\n    <meta name=\"viewport\" content=\"width=device-width\">\n...
 ```
-![herbes_template](https://github.com/haydenmcfarland/assets/blob/master/images/herbes_template.png?raw=true)
 
 #### providing custom template path and style path
 
