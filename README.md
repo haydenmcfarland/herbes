@@ -51,18 +51,15 @@ Herbes::Email.render(params)
 params = { 
   new_param1: 'test', 
   new_param2: 'cool',
-  template_path: 'template.html.erb', 
-  style_path: 'style.css',
 }
 
-Herbes::Email.render(params)
-
+Herbes::Email.render(params, template_path: 'template.html.erb', style_path: 'style.css')
 ```
 
 #### providing style string
 
 ```ruby
 
-Herbes::Email.render(params.merge(style_string: custom_css)
+Herbes::Email.render(params, style_string: custom_css)
 
 ```
