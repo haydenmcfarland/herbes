@@ -5,7 +5,7 @@
 
 # What?
 
-A gem for generating HTML with inlined css from ERB templates for emails.
+A gem for generating HTML with inlined css from ERB templates for email rendering purposes.
 
 # How to use
 Add `herbes` to your gem file:
