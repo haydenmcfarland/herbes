@@ -47,7 +47,9 @@ module Herbes
     class << self
       def render(params, options = {})
         path = options[:template_path]
-        Herbes::Email.new(params, options).render_inline_template(path)
+        premailer = options[:premailer] || {}
+        Herbes::Email.new(params, options)
+                     .render_inline_template(path, premailer)
       end
     end
   end
