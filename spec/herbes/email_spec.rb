@@ -29,10 +29,6 @@ describe Herbes::Email do
     }
   end
 
-  let(:default_params_with_new_path) do
-    default_params.merge(style_path: FIXTURES.join('test.css'))
-  end
-
   it 'can inline css into html erb template' do
     result = Herbes::Email.render(default_params)
 
@@ -41,7 +37,11 @@ describe Herbes::Email do
   end
 
   it 'allows css path to determine styling in email' do
-    result = Herbes::Email.render(default_params_with_new_path)
+    result = Herbes::Email.render(
+      default_params,
+      style_path: FIXTURES.join('test.css')
+    )
+
     CUSTOM_CSS_HTML.open('w+') { |f| f.write(result) } if ENV['REGEN'] == 'true'
 
     custom = CUSTOM_CSS_HTML.read
@@ -54,8 +54,7 @@ describe Herbes::Email do
 
   it 'allows use of custom erb template' do
     result = Herbes::Email.render(
-      title: 'hello',
-      p_test: 'test',
+      { title: 'hello', p_test: 'test' },
       template_path: CUSTOM_ERB_TEMPLATE
     )
 

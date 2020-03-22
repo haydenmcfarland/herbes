@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     herbes (0.0.1)
+      nokogiri
+      premailer
 
 GEM
   remote: https://rubygems.org/
@@ -44,8 +46,6 @@ PLATFORMS
 
 DEPENDENCIES
   herbes!
-  nokogiri
-  premailer
   pry
   rspec
 

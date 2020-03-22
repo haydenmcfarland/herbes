@@ -17,10 +17,10 @@ module Herbes
       render_style
     end
 
-    def initialize(hash)
-      params = hash.transform_keys(&:to_sym)
-      params[:style] = resolve_style(params)
-      super(params)
+    def initialize(template_params, options = {})
+      style = resolve_style(options)
+      params = template_params.transform_keys(&:to_sym)
+      super(params.merge(style: style))
     end
 
     def render_html(template)
@@ -45,9 +45,9 @@ module Herbes
     end
 
     class << self
-      def render(params)
-        path = params.delete(:template_path)
-        Herbes::Email.new(params).render_inline_template(path)
+      def render(params, options = {})
+        path = options[:template_path]
+        Herbes::Email.new(params, options).render_inline_template(path)
       end
     end
   end
