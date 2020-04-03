@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require 'pry'
 module Herbes
   module Constants
-    DEFAULT_EMAIL_TEMPLATE_PATH = 'lib/herbes/assets/templates/herbes.html.erb'
-    DEFAULT_EMAIL_STYLE_PATH = 'lib/herbes/assets/styles/herbes.css'
+    DIR = File.dirname(__FILE__)
+    DEFAULT_EMAIL_TEMPLATE_PATH = "#{DIR}/assets/templates/herbes.html.erb"
+    DEFAULT_EMAIL_STYLE_PATH = "#{DIR}/assets/styles/herbes.css"
   end
 end
