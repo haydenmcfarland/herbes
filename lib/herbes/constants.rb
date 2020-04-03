@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
 module Herbes
   module Constants
     DIR = File.dirname(__FILE__)
