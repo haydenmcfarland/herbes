@@ -48,8 +48,11 @@ module Herbes
       def render(params, options = {})
         path = options[:template_path]
         premailer = options[:premailer] || {}
+
+        # remove unicode space as it fails aws cognito regex
         Herbes::Email.new(params, options)
                      .render_inline_template(path, premailer)
+                     .gsub("\u00A0", '')
       end
     end
   end
