@@ -12,6 +12,10 @@ Add `herbes` to your gem file:
 
 ```ruby
 gem 'herbes', github: 'haydenmcfarland/herbes'
+
+or
+
+gem 'herbes' # from rubygems
 ```
 
 Run `bundle install`
