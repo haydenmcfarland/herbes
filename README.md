@@ -11,10 +11,6 @@ A gem for generating HTML with inlined css from ERB templates for email renderin
 Add `herbes` to your gem file:
 
 ```ruby
-gem 'herbes', github: 'haydenmcfarland/herbes'
-
-or
-
 gem 'herbes' # from rubygems
 ```
 
