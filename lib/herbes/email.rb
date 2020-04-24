@@ -11,10 +11,11 @@ module Herbes
     end
 
     def resolve_style(params)
-      return render_style(params[:style_path]) if params.key?(:style_path)
-      return style_string if params.key?(:style_string)
+      s = params[:style_string] ||
+          (params.key?(:style_path) ? render_style(params[:style_path]) : nil)
+      return s if s && params[:extend_default_style] != true
 
-      render_style
+      [render_style, s].join("\n")
     end
 
     def initialize(template_params, options = {})

@@ -9,8 +9,8 @@ GLOBAL RESETS
 img {
   border: none;
   max-height: 100px;
-  -ms-interpolation-mode: bicubic;
   max-width: 100%;
+  -ms-interpolation-mode: bicubic;
 }
 
 body {

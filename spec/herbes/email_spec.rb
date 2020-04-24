@@ -5,6 +5,7 @@ require 'pathname'
 
 FIXTURES = Pathname.new("#{File.dirname(__FILE__)}/fixtures/")
 CUSTOM_CSS_HTML = FIXTURES.join('custom_css_test.html')
+CUSTOM_CSS_EXT_HTML = FIXTURES.join('custom_css_ext_test.html')
 CUSTOM_ERB_HTML = FIXTURES.join('custom_erb_test.html')
 CUSTOM_ERB_TEMPLATE = FIXTURES.join('custom.html.erb')
 DEFAULT_HTML = FIXTURES.join('test.html')
@@ -49,7 +50,11 @@ describe Herbes::Email do
 
     default = DEFAULT_HTML.read
     expect(custom).to_not eq(default)
-    expect(custom.gsub('200px', '100px')).to eq(default)
+    custom.gsub!('width: 100px;', '')
+    custom.gsub!('height: 200', 'max-height: 100')
+    custom.gsub!('style=" ', 'style="')
+    custom.gsub!('none;  max', 'none; max')
+    expect(custom).to eq(default)
   end
 
   it 'allows use of custom erb template' do
@@ -62,5 +67,27 @@ describe Herbes::Email do
 
     custom = CUSTOM_ERB_HTML.read
     expect(result).to eq(custom)
+  end
+
+  it 'allows to extend default styling' do
+    custom_css = "img {\nwidth: 300px;\n}\n"
+
+    result = Herbes::Email.render(
+      default_params,
+      extend_default_style: true,
+      style_string: custom_css
+    )
+
+    CUSTOM_CSS_EXT_HTML.open('w+') { |f| f.write(result) } if
+      ENV['REGEN'] == 'true'
+
+    custom = CUSTOM_CSS_EXT_HTML.read
+    default = DEFAULT_HTML.read
+
+    expect(custom).to_not eq(default)
+    expect(custom).to include('width: 300px')
+    custom.gsub!(custom_css, '')
+    custom.gsub!('width: 300px; ', '')
+    expect(custom).to eq(default)
   end
 end
