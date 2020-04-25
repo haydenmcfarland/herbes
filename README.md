@@ -63,3 +63,12 @@ Herbes::Email.render(params, template_path: 'template.html.erb', style_path: 'st
 Herbes::Email.render(params, style_string: custom_css)
 
 ```
+
+#### extending default style
+
+```ruby
+
+Herbes::Email.render(params, extend_default_style: true, style_string: custom_css)
+Herbes::Email.render(params, extend_default_style: true, style_path: 'style.css')
+
+```
