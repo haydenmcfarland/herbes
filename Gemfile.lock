@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    herbes (0.0.7)
+    herbes (0.0.8)
       nokogiri
       premailer
 

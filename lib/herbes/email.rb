@@ -6,7 +6,7 @@ require 'premailer'
 
 module Herbes
   class Email < OpenStruct
-    def render_style(path = Herbes::Constants::DEFAULT_EMAIL_STYLE_PATH)
+    def render_style(path = Constants::DEFAULT_EMAIL_STYLE_PATH)
       File.read(path)
     end
 
@@ -29,12 +29,12 @@ module Herbes
     end
 
     def render_template(path = nil)
-      path ||= Herbes::Constants::DEFAULT_EMAIL_TEMPLATE_PATH
+      path ||= Constants::DEFAULT_EMAIL_TEMPLATE_PATH
       render_html(File.read(path))
     end
 
     def render_inline_template(path = nil, premailer_options = {})
-      path ||= Herbes::Constants::DEFAULT_EMAIL_TEMPLATE_PATH
+      path ||= Constants::DEFAULT_EMAIL_TEMPLATE_PATH
       Premailer.new(
         render_template(path),
         [
@@ -51,9 +51,9 @@ module Herbes
         premailer = options[:premailer] || {}
 
         # remove unicode space as it fails aws cognito regex
-        Herbes::Email.new(params, options)
-                     .render_inline_template(path, premailer)
-                     .gsub("\u00A0", '')
+        new(params, options)
+          .render_inline_template(path, premailer)
+          .gsub("\u00A0", '')
       end
     end
   end
